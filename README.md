@@ -90,3 +90,12 @@ The platform is built to be expanddable, with future features such as profiles, 
 - As a site owner, I want to build a community where users engage in discussions.
 
 [Back to Top](#contents)
+
+## User Goals
+
+- Stay updated on music-related news.
+- Interact with other users through comments and voting.
+- Easily browse posts by category.
+- Share personal insights and opinions about music.
+
+[Back to Top](#contents)
