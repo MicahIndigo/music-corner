@@ -9,7 +9,6 @@
     * [Future Features](#future-features)
 - [User Stories](#user-stories)
 - [User Goals](#user-goals)
-- [How to Play](#how-to-play)
 - [Wireframes](#wireframes)
 - [Design](#design)
   * [Typography](#typography)
@@ -37,3 +36,15 @@
   * [Fork Project](#fork-project)
   * [Clone Project](#clone-project)
 - [Credits](#credits)
+
+## About
+
+Music Corner is a music-focused blog and discussion platform, where users can post music-related news, write blog style updates, leave comments and interact with content.
+
+Music corner aims to build a friendly, community-driven space where music lovers can discuss the latest releases, industry news and trending topics.
+
+This project is built using **Django**, **PostgreSQL**, **HTML**, **CSS**, and **JavaScript** with deployment managed through **Render**.
+
+[Back to Top](#contents)
+
+## Rationale
