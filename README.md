@@ -9,6 +9,7 @@
     * [Future Features](#future-features)
 - [User Stories](#user-stories)
 - [User Goals](#user-goals)
+- [Site Structure](#site-structure)
 - [Wireframes](#wireframes)
 - [Design](#design)
   * [Typography](#typography)
@@ -97,5 +98,18 @@ The platform is built to be expanddable, with future features such as profiles, 
 - Interact with other users through comments and voting.
 - Easily browse posts by category.
 - Share personal insights and opinions about music.
+
+[Back to Top](#contents)
+
+## Site Structure
+
+Music Corner uses a classic blog layout:
+
+- **Homepage**: Displays a list of posts.
+- **Post Page**: Full post + comments section.
+- **Create Post Page**: Form for writing new posts.
+- **Edit/Delete Post Pages**
+- **Category Pages**: Posts filtered by genre/category.
+- **User Authentication Pages**: Register, Login, Logout.
 
 [Back to Top](#contents)
