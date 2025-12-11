@@ -56,3 +56,26 @@ Django is ideal for managing user-generated content, while PostgreSQL ensures go
 The platform is built to be expanddable, with future features such as profiles, playlists and chat/communities to be added later.
 
 [Back to Top](#contents)
+
+### Features
+
+#### Existing Features
+- User Authentication(Login, Register, Logout).
+- Create/ Read/ Update/ Delete (CRUD) functionality for posts.
+- Comment on each post.
+- Upvote / Downvote system.
+- Timestamp on post and comments.
+- Categories for grouping content (e.g Hip-hop, R&B, Reviews, Releases).
+- Responsive UI.
+- Navigation bar with links to key pages.
+- Clean, simple blog-style layout.
+
+#### Future Features
+- User profiles with Bios and favourite genres.
+- Communities (Following/follower, Groups).
+- Image Upload for posts.
+- Search filters + advanced music tags (artists, albums, genres).
+- API integration for Spotify/Apple Music previews.
+- Dark/light theme mode.
+
+[Back to Top](#contents)
