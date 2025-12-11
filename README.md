@@ -54,7 +54,7 @@ The goal of this project is to create a clean, blogging platform with social int
 
 Django is ideal for managing user-generated content, while PostgreSQL ensures good relational data handling.
 
-The platform is built to be expanddable, with future features such as profiles, playlists and chat/communities to be added later.
+The platform is built to be expanddable, with future features such as artist profiles, playlists and chat/communities to be added later.
 
 [Back to Top](#contents)
 
@@ -74,7 +74,6 @@ The platform is built to be expanddable, with future features such as profiles, 
 #### Future Features
 - User profiles with Bios and favourite genres.
 - Communities (Following/follower, Groups).
-- Image Upload for posts.
 - Search filters + advanced music tags (artists, albums, genres).
 - API integration for Spotify/Apple Music previews.
 - Dark/light theme mode.
@@ -111,5 +110,39 @@ Music Corner uses a classic blog layout:
 - **Edit/Delete Post Pages**
 - **Category Pages**: Posts filtered by genre/category.
 - **User Authentication Pages**: Register, Login, Logout.
+
+[Back to Top](#contents)
+
+## Wireframes
+
+[Back to Top](#contents)
+
+## Design
+
+### Typography
+
+- Headings: **Montserrat** - bold, modern, good for blog titles.
+- Body text: **Roboto** - clean and easy to read for long-form posts.
+
+### Colour Scheme
+
+- Clean white/light background.
+- Dark grey headings.
+- Accent colour (red)
+- Soft borders and shadows for card-style posts.
+
+### Images
+
+- Logo
+- Category/Genre Icons.
+- User-uploaded images.
+
+[Back to Top](#contents)
+
+### Responsiveness
+
+- Fully responsive design built using CSS and Bootstrap.
+- Navigation collapses to Hamburger menu on mobile.
+- Cards and posts layouts adjust for smaller screens.
 
 [Back to Top](#contents)
