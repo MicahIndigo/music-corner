@@ -79,3 +79,14 @@ The platform is built to be expanddable, with future features such as profiles, 
 - Dark/light theme mode.
 
 [Back to Top](#contents)
+
+## User Stories
+
+- As a user, I want to create posts to share music news and updates.
+- As a user, I want to read posts created by others.
+- As a user, I want to comment on posts to join discussions.
+- As a user, I want to upvote/downvote posts that I like or dislike.
+- As a user, I want content grouped into categories so it's easier to browse.
+- As a site owner, I want to build a community where users engage in discussions.
+
+[Back to Top](#contents)
