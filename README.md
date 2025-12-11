@@ -48,3 +48,11 @@ This project is built using **Django**, **PostgreSQL**, **HTML**, **CSS**, and *
 [Back to Top](#contents)
 
 ## Rationale
+
+The goal of this project is to create a clean, blogging platform with social interaction features, focusing specifically on music news and culture.
+
+Django is ideal for managing user-generated content, while PostgreSQL ensures good relational data handling.
+
+The platform is built to be expanddable, with future features such as profiles, playlists and chat/communities to be added later.
+
+[Back to Top](#contents)
