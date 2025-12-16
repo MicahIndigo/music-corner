@@ -173,4 +173,29 @@ Music Corner uses a classic blog layout:
 
 ## Testing
 
+### Bug Report
 
+### Responsiveness Test
+
+### Code Validation
+
+## Deployment
+
+### **Deploy Project on Render**
+1. Push project to Github.
+2. Create a new **Web Service** on Render.
+3. Connect your Github Repository.
+4. **Use**:
+      - **Build Command**:
+       pip install -r requirements.txt
+      - **Start Command**:
+       gunicorn musiccorner.wsgi:application --log-file -
+5. Add required environment variables:
+    - SECRET_KEY
+    - DATABASE_URL (auto-created)
+    - DEBUG=False
+6. Create a PostgreSQL instance on Render.
+7. Run migrations via Render shell:
+    - python manage.py migrate
+
+[Back to Top](#contents)
