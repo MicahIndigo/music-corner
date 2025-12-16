@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: music-corner
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn musiccorner.wsgi:application --log-file -"
+    plan: free
+    envVars:
+      - key:  DJANGP_SETTINGS_MODULE
+        value: musiccorner.settings
+databases:
+  - name: musiccorner-db
+    plan: free
