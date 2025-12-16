@@ -181,7 +181,7 @@ Music Corner uses a classic blog layout:
 
 ## Deployment
 
-### **Deploy Project on Render**
+### Deploy Project on Render
 1. Push project to Github.
 2. Create a new **Web Service** on Render.
 3. Connect your Github Repository.
@@ -199,3 +199,29 @@ Music Corner uses a classic blog layout:
     - python manage.py migrate
 
 [Back to Top](#contents)
+
+### Fork Project
+1. Go to the Github repo.
+2. Click **Fork**.
+3. Choose your Github account.
+4. Repo will be copied into your profile.
+
+### Clone Project
+1. Go to project repo.
+2. Click **Code**.
+3. Copy HTTPS/SSH link.
+4. On your machine:
+    git clone <repo-url>
+
+[Back to Top](#contents)
+
+## Credits
+
+- **Project Author**: Emica Gordon
+- **Framework**: Django
+- **Database**: PostgreSQL
+- **Hosting**: Render
+- **Wireframes**: Balsamic
+- **Styling Inspiration**: Modern music blogs and editorial layouts
+- **Testing Tools**: WAVE, Lighthouse, Browserstack, DevTools
+- **Community Inspiration**: Reddit-style voting and discussion boards
