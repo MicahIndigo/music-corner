@@ -146,3 +146,31 @@ Music Corner uses a classic blog layout:
 - Cards and posts layouts adjust for smaller screens.
 
 [Back to Top](#contents)
+
+## Technologies Used
+
+### Languages
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript ES6+](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/What_is_JavaScript)
+- [Python 3.12](https://www.python.org/downloads/release/python-3120/)
+- [SQL (PostgreSQL)](https://www.postgresql.org/docs/)
+
+### Libraries and frameworks
+- **Django** - Backend framework
+- **Bootstrap** - Responsive layout
+- **Gunicorn** - Django production web server
+- **psycopg2** - PostgreSQL
+
+### Tools
+- **Git & Github** - Version control
+- **Render** - Hosting
+- **Chrome DevTools** - Debugging
+- **W3C Validators** - Code validation
+- **BrowserStack** - Cross browser testing
+
+[Back to Top](#contents)
+
+## Testing
+
+
