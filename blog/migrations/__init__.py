@@ -1,0 +1,1 @@
+# Required for Django's migration package initialization.
