@@ -1,0 +1,125 @@
+/*
+Music Corner - Custom CSS
+Fonts:
+- Roboto: body text
+- Montserrat: headings
+
+Google Fonts are loaded in base.html
+*/
+
+/* -----------------------------
+   Global / Reset Overrides
+-------------------------------- */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f7f7f9;
+    line-height: 1.6;
+}
+
+/* -----------------------------
+   Typography
+-------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 600;
+    color: #212529;
+}
+
+h1 {
+    font-size: 1.75rerm;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p  {
+    margin-bottom: 1rem;
+}
+
+/*  -----------------------------
+   Links
+-------------------------------- */
+a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* -----------------------------
+   Navbar
+-------------------------------- */
+.navbar-brand {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* -----------------------------
+   Cards (Posts & Comments)
+-------------------------------- */
+.card {
+    border-radius: 6px;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* -----------------------------
+   Buttons
+-------------------------------- */
+.btn {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weieght: 500;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+}
+
+/* -----------------------------
+   Forms
+-------------------------------- */
+form label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+form input,
+form textarea,
+form select {
+    font-family: "Robooto", Arial, sans-serif;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* -----------------------------
+   Comments Section
+-------------------------------- */
+.comment {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.comment small {
+    color: #6c757d;
+}
