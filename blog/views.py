@@ -10,10 +10,26 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth.forms import UserCreationForm
 
 
 from .forms import CommentForm, PostForm
 from .models import Comment, Post
+
+
+def register(request):
+    """
+    Register a new user account.
+    """
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+    else:
+        form = UserCreationForm()
+
+    return render(request, "registration/register.html", {"form": form})
 
 
 def post_list(request: HttpRequest) -> HttpResponse:
@@ -29,7 +45,8 @@ def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     - show comments
     - add comment form
     """
-    post = get_object_or_404(Post.objects.select_related("category", "author"), pk=pk)
+    post = get_object_or_404(
+        Post.objects.select_related("category", "author"), pk=pk)
     comments = post.comments.select_related("author").all()
 
     comment_form = CommentForm()
@@ -59,8 +76,12 @@ def post_create(request: HttpRequest) -> HttpResponse:
             return redirect("blog:post_detail", pk=post.pk)
     else:
         form = PostForm()
-    
-    return render(request, "blog/post_form.html", {"form": form, "mode": "create"})
+
+    return render(
+        request,
+        "blog/post_form.html",
+        {"form": form, "mode": "create"},
+    )
 
 
 @login_required
@@ -72,9 +93,10 @@ def post_update(request: HttpRequest, pk: int) -> HttpResponse:
     post = get_object_or_404(Post, pk=pk)
 
     if post.author != request.user:
-        messages.error(request, "You do not have permission to edit this post.")
+        messages.error(
+            request, "You do not have permission to edit this post.")
         return redirect("blog:post_detail", pk=post.pk)
-    
+
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -83,8 +105,12 @@ def post_update(request: HttpRequest, pk: int) -> HttpResponse:
             return redirect("blog:post_detail", pk=post.pk)
     else:
         form = PostForm(instance=post)
-    
-    return render(request, "blog/post_form.html", {"form": form, "mode": "edit", "post": post})
+
+    return render(
+        request,
+        "blog/post_form.html",
+        {"form": form, "mode": "edit", "post": post},
+    )
 
 
 @login_required
@@ -96,14 +122,16 @@ def post_delete(request: HttpRequest, pk: int) -> HttpResponse:
     post = get_object_or_404(Post, pk=pk)
 
     if post.author != request.user:
-        messages.error(request, "You do not have permission to delete this post.")
+        messages.error(
+            request, "You do not have permission to delete this post."
+        )
         return redirect("blog:post_detail", pk=post.pk)
-    
+
     if request.method == "POST":
         post.delete()
         messages.success(request, "Post deleted.")
         return redirect("blog:post_list")
-    
+
     return render(request, "blog/post_confirm_delete.html", {"post": post})
 
 
@@ -136,9 +164,11 @@ def comment_delete(request: HttpRequest, comment_id: int) -> HttpResponse:
     post_pk = comment.post.pk
 
     if comment.author != request.user:
-        messages.error(request, "You do not have permission to delete this comment.")
+        messages.error(
+            request, "You do not have permission to delete this comment."
+        )
         return redirect("blog:post_detail", pk=post_pk)
-    
+
     if request.method == "POST":
         comment.delete()
         messages.success(request, "Comment deleted.")
