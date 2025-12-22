@@ -15,7 +15,9 @@ class PostForm(forms.ModelForm):
         fields = ["title", "content", "category"]
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
-            "content": forms.Textarea(attrs={"class": "form-control", "rows": 6}),
+            "content": forms.Textarea(
+                attrs={"class": "form-control", "rows": 6}
+            ),
             "category": forms.Select(attrs={"class": "form-select"}),
         }
     
@@ -28,5 +30,11 @@ class CommentForm(forms.ModelForm):
         model = Post
         fields = ["content"]
         widgets = {
-            "content": forms.Textarea(attrs={"class": "form-control", "rows": 3, "placeholder": "write a comment..."}),
+            "content": forms.Textarea(
+                attrs={
+                    "class": "form-control",
+                    "rows": 3,
+                    "placeholder": "write a comment...",
+                }
+            ),
         }
