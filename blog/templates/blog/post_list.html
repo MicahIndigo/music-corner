@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Music Corner Feed</h1>
+
+{% if posts %}
+  {% for post in posts %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2 class="h5">
+                <a href="{% url 'blog:post_detail' post.pk %}">
+                    {{ post.title }}
+                </a>
+            </h2>
+
+            <div class="text-muted small mb-2">
+                Score: <strong>{{ post.score|default:0 }}</strong>
+                • {{ post.author }}
+                • {{ post.creted_at|date:"M d, Y" }}
+                {% if post.category %} • {{ post.category }}{% endif %}
+            </div>
+
+            <p>{{ post.content|truncatewords:30 }}</p>
+        </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No posts yet.</p>
+{% endif %}
+{% endblock %}

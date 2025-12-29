@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+    <h1>{{ post.title }}</h1>
+
+    <div class="text-muted mb-3">
+        by {{ post.author}} • {{ post.created_at|date:"M d, Y H:i" }}
+        {% if post.category %} • {{ post.category }}{% endif %}
+    </div>
+
+    <p>{{ post.content }}</p>
+
+    <!-- Voting (upvote/downvote) -->
+     <div class="my-3 d-flex align-items-center gap2">
+        <span class="badge bg-dark">Score: {{ score }}</span>
+
+
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'blog:post_upvote' post.pk 1 %}">
+            {% csrf_token %}
+            <button class="btn btn-outline-success btn-sm">👍 Upvote</button>
+          </form>
+
+          <form method="post" action="{% url 'blog:post_downvote' post.pk -1 %}">
+            {% csrf_token %}
+            <button class="btn bt-outline-primary btn-sm">👎 Downvote</button>
+          </form>
+        {% else %}
+          <a class="btn btn-outline-primary btn-sm" href="{% url 'login' %}">
+            Log in to vote
+          </a>
+        {% endif %}
+     </div>
+
+     {% if user == post.author %}
+       <a href="{% url 'blog:post_update' post.pk %}" class="btn btn-sm btn-warning">Edit</a>
+       <a href="{% url 'blog:post_delete' post.pk %}" class="btn btn-sm btn-danger">
+        Delete
+       </a>
+     {% endif %}
+</article>
+
+<hr>
+
+
+<h3>Comments</h3>
+
+{% for comment in comments %}
+    <div class="comment">
+        <strong>{{ comment.author }}</strong>
+        <small>{{ comment.created_at|date:"M d, Y:i" }}</small>
+        <p>{{ somment.content }}</p>
+
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'blog:comment_delete' coment.id %}">
+            {% csrf_token %}
+            <button clas="btn btn-sm btn-outine-danger">Delete</button>
+          </form>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>No comments yet</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <hr>
+    <h4>Add a comment</h4>
+    <form method="post" action="{% url 'blog:comment_create' post.pk %}">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button class="btn btn-primary btn-sm">Post comment</button>
+    </form>
+{% else %}
+    <p>
+        <a href="{% url 'login' %}">Log in</a> to comment.
+    </p>
+{% endif %}
+{% endblock %}

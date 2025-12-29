@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-3">
+    {% if mode == "edit" %} Edit Post{% else %}New Post{% endif %}
+</h1>
+
+<form metod="post" class="card card-body">
+    {% csrf_token %}
+    {{ orm.as_p }}
+    <button class="btn btn-success">
+        {% if nmode == "edit" %}Update{% else %}Create{% endif %}
+    </button>
+</form>
+{% endblock %}

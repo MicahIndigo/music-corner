@@ -86,3 +86,32 @@ class Comment(models.Model):
     
     def __str__(self) -> str:
         return f"comment by {self.author} on {self.post}"
+
+
+class Vote(models.Model):
+    """
+    A user's vote on a post.
+    value = 1 (upvote) or -1 (downvote)
+    One vote per user per post.
+    """
+    post = models.ForeignKey(
+        Post, 
+        on_delete=models.CASCADE, 
+        related_name="votes"
+    )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="votes"
+    )
+    value = models.SmallIntegerField()  # 1 or -1
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["post", "user"], 
+                name="unique_vote_per_user_per_post"
+            )
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user} voted {self.value} on {self.post}"
