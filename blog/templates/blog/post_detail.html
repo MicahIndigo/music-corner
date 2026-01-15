@@ -12,19 +12,19 @@
     <p>{{ post.content }}</p>
 
     <!-- Voting (upvote/downvote) -->
-     <div class="my-3 d-flex align-items-center gap2">
+     <div class="my-3 d-flex align-items-center gap-2">
         <span class="badge bg-dark">Score: {{ score }}</span>
 
 
         {% if user.is_authenticated %}
-          <form method="post" action="{% url 'blog:post_upvote' post.pk 1 %}">
+          <form method="post" action="{% url 'blog:post_vote' post.pk 1 %}">
             {% csrf_token %}
             <button class="btn btn-outline-success btn-sm">👍 Upvote</button>
           </form>
 
-          <form method="post" action="{% url 'blog:post_downvote' post.pk -1 %}">
+          <form method="post" action="{% url 'blog:post_vote' post.pk -1 %}">
             {% csrf_token %}
-            <button class="btn bt-outline-primary btn-sm">👎 Downvote</button>
+            <button class="btn btn-outline-primary btn-sm">👎 Downvote</button>
           </form>
         {% else %}
           <a class="btn btn-outline-primary btn-sm" href="{% url 'login' %}">
