@@ -2,7 +2,7 @@
 URL configuration for Music corner app
 """
 
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 
@@ -25,5 +25,9 @@ urlpatterns = [
         views.comment_delete,
         name="comment_delete",
     ),
-    path("post/<int:pk>/vote/<int:value>/", views.post_vote, name="post_vote"),
+    re_path(
+        r"^post/(?P<pk>\d+)/vote/(?P<value>-?\d+)/$",
+        views.post_vote,
+        name="post_vote",
+    ),
 ]
