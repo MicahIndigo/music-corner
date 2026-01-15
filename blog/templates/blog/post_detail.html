@@ -13,24 +13,21 @@
 
     <!-- Voting (upvote/downvote) -->
      <div class="my-3 d-flex align-items-center gap-2">
-        <span class="badge bg-dark">Score: {{ score }}</span>
+       <span id="vote-score" class="badge bg-dark">Score: {{ score }}</span>
 
+       {% if user.is_authenticated %}
+         <form class="vote-form" data-value="1" method="post" action="{% url 'blog:post_vote' post.pk 1 %}">
+           {% csrf_token %}
+           <button class="btn btn-outline-success btn-sm" type="submit"> Upvote</button>
+         </form>
 
-        {% if user.is_authenticated %}
-          <form method="post" action="{% url 'blog:post_vote' post.pk 1 %}">
-            {% csrf_token %}
-            <button class="btn btn-outline-success btn-sm">👍 Upvote</button>
-          </form>
-
-          <form method="post" action="{% url 'blog:post_vote' post.pk -1 %}">
-            {% csrf_token %}
-            <button class="btn btn-outline-primary btn-sm">👎 Downvote</button>
-          </form>
-        {% else %}
-          <a class="btn btn-outline-primary btn-sm" href="{% url 'login' %}">
-            Log in to vote
-          </a>
-        {% endif %}
+         <form class="vote-form" data-value="-1" method="post" action="{% url 'blog:post_vote' post.pk -1 %}">
+           {% csrf_token %}
+           <button class="btn btn-outline-danger btn-sm" type="submit"> Downvote</button>
+         </form>
+         {% else %}
+           <a class="btn btn-outline-primary btn-sm" href="{% url 'login' %}">Log in to vote</a>
+         {% endif %}
      </div>
 
      {% if user == post.author %}
