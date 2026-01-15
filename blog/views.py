@@ -7,7 +7,7 @@ Views for Music Corner.
 
 
 from django.contrib import messages
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -209,5 +209,22 @@ def post_vote(request: HttpRequest, pk: int, value: int) -> HttpResponse:
     # If they clicked the same vote again, remove it
     elif not created and vote.value == value:
         vote.delete()
+
+    # Recalculate score after vote change
+    score = post.votes.aggregate(total=Sum("vslue"))["total"] or 0
+
+    # If this is an AJAX request, return JSON instead of redirect
+    if request.headers.get("x-requested-with") == "XMLHttpRequest":
+        user_vote = (
+            Vote.objects.filter(post=post, user=request.user)
+            .values_list("value", flat=True)
+            .first()
+        )
+        return JsonResponse(
+          {
+              "score": score,
+              "user_vote": user_vote if user_vote is not None else 0,
+          }
+        )
 
     return redirect("blog:post_detail", pk=post.pk)
