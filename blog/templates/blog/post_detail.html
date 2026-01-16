@@ -49,7 +49,7 @@
         <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
         <p>{{ comment.content }}</p>
 
-        {% if user = comment.author %}
+        {% if user == comment.author %}
           <form method="post" action="{% url 'blog:comment_delete' comment.id %}">
             {% csrf_token %}
             <button class="btn btn-sm btn-outline-danger">Delete</button>
