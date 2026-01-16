@@ -171,13 +171,6 @@ Music Corner uses a classic blog layout:
 
 [Back to Top](#contents)
 
-## Testing
-
-### Bug Report
-
-### Responsiveness Test
-
-### Code Validation
 
 ## Deployment
 

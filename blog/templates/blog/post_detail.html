@@ -46,13 +46,13 @@
 {% for comment in comments %}
     <div class="comment">
         <strong>{{ comment.author }}</strong>
-        <small>{{ comment.created_at|date:"M d, Y:i" }}</small>
-        <p>{{ somment.content }}</p>
+        <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
+        <p>{{ comment.content }}</p>
 
-        {% if user.is_authenticated %}
-          <form method="post" action="{% url 'blog:comment_delete' coment.id %}">
+        {% if user = comment.author %}
+          <form method="post" action="{% url 'blog:comment_delete' comment.id %}">
             {% csrf_token %}
-            <button clas="btn btn-sm btn-outine-danger">Delete</button>
+            <button class="btn btn-sm btn-outline-danger">Delete</button>
           </form>
         {% endif %}
     </div>
